@@ -4,11 +4,22 @@ export default function Login() {
   const email = useRef();
   const password = useRef();
 
+  const [formIsInvalid, setFormisInvalid] = useState();
+
   function handleSubmit(event) {
     event.preventDefault();
     const enterdEmail = email.current.value;
     const enterdPassword = password.current.value;
-    console.log(enterdEmail, enterdPassword);
+
+    const emailIsValid = enterdEmail.includes("@");
+
+    // console.log(enterdEmail, enterdPassword);
+    if (!emailIsValid) {
+      setFormisInvalid(true);
+      return;
+    }
+    setFormisInvalid(false);
+    console.log("sending http request... ");
   }
 
   return (
@@ -19,6 +30,9 @@ export default function Login() {
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" ref={email} />
+          <div className="control-error">
+            {formIsInvalid && <p>Please enter a valid email address</p>}
+          </div>
         </div>
 
         <div className="control no-margin">
