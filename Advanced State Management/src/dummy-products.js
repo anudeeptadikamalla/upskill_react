@@ -16,11 +16,11 @@ export const DUMMY_PRODUCTS = [
   },
   {
     id: 'p2',
-    image: dreamGown,
-    title: 'Enchanting Blush Dream Gown',
+    image: mochaOvercoat,
+    title: 'Majestic Vintage Mocha Overcoat',
     price: 189.99,
     description:
-      'Bask in the glow of elegance with our Enchanting Blush Dream Gown. Embody the regality of a queen with a sweet touch of pink that whispers enchantment. This is the perfect piece for those seeking to create unforgettable moments.',
+    'Channel timeless sophistication with this stunning mocha overcoat. Crafted for the discerning gentleman who appreciates the fine blend of vintage charm and modern elegance.',
   },
 
   {
@@ -41,11 +41,11 @@ export const DUMMY_PRODUCTS = [
     },
     {
     id: 'p5',
-    image: moonlightDress,
-    title: 'Ethereal Moonlight Evening Dress',
+    image: merlotSuit,
+    title: 'Classic Merlot Business Suit',
     price: 159.99,
     description:
-    'Sweep the room off its feet in our Ethereal Moonlight Evening Dress. Crafted to mimic the allure of the moonlight, this dress is a nod to those who appreciate subtle glamour and a standout silhouette.',
+    'Step into the boardroom with unmatched confidence in our Classic Merlot Business Suit. Exuding an air of refined class and understated power, it is ideal for the modern executive who values tradition and elegance.',
     },
     {
     id: 'p6',
