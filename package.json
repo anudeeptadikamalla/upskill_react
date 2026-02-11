@@ -1,0 +1,7 @@
+{
+  "name": "upskill_react",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ]
+}
