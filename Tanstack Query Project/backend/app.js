@@ -2,8 +2,14 @@ import fs from 'node:fs/promises';
 
 import bodyParser from 'body-parser';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 
 const app = express();
+
+const deleteEventsLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 delete requests per windowMs
+});
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -149,7 +155,7 @@ app.put('/events/:id', async (req, res) => {
   }, 1000);
 });
 
-app.delete('/events/:id', async (req, res) => {
+app.delete('/events/:id', deleteEventsLimiter, async (req, res) => {
   const { id } = req.params;
 
   const eventsFileContent = await fs.readFile('./data/events.json');
