@@ -1,19 +1,19 @@
-version: 2
+# version: 2
 
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+# updates:
+#   - package-ecosystem: "npm"
+#     directory: "/"
+#     schedule:
+#       interval: "weekly"
 
-    open-pull-requests-limit: 5
+#     open-pull-requests-limit: 5
 
-    groups:
-      security-updates:
-        applies-to: security-updates
-        patterns:
-          - "*"
+#     groups:
+#       security-updates:
+#         applies-to: security-updates
+#         patterns:
+#           - "*"
 
-    labels:
-      - "dependencies"
-      - "security"
+#     labels:
+#       - "dependencies"
+#       - "security"
