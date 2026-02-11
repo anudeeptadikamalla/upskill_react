@@ -12,6 +12,13 @@ const deleteEventsLimiter = rateLimit({
 });
 
 app.use(bodyParser.json());
+
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+});
+
+app.use(globalLimiter);
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -179,3 +186,4 @@ app.delete('/events/:id', deleteEventsLimiter, async (req, res) => {
 app.listen(3000, () => {
   console.log('Server running on port 3000');
 });
+

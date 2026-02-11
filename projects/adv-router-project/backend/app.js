@@ -6,6 +6,13 @@ const eventRoutes = require('./routes/events');
 const app = express();
 
 app.use(bodyParser.json());
+
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+});
+
+app.use(globalLimiter);
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE');
@@ -22,3 +29,4 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(8080);
+

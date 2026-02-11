@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-
+import rateLimit from 'express-rate-limit';
 import bodyParser from 'body-parser';
 import express from 'express';
 
@@ -7,6 +7,13 @@ const app = express();
 
 app.use(express.static('images'));
 app.use(bodyParser.json());
+
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+});
+
+app.use(globalLimiter);
 
 // CORS
 
@@ -51,3 +58,4 @@ app.use((req, res, next) => {
 });
 
 app.listen(3000);
+
